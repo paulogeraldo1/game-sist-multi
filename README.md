@@ -1,1 +1,2 @@
-# 🌍 Jogo: Equilíbrio do Ecossistema (ODS 13 & 15)
+# 🌍 Jogo: Equilíbrio do Ecossistema (ODS 13)
+

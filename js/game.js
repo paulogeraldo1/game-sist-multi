@@ -65,8 +65,15 @@ const upgradeButtons = {
     education: document.getElementById('upgrade-education')
     
 };
+
 const treeButton = document.getElementById('tree-button');
 const quitGameButton = document.getElementById('quit-game-button');
+
+// NOVO: Elementos Visuais de Infraestrutura
+const irrigationVisuals = document.getElementById('irrigation-visual');
+const wallsVisuals = document.getElementById('walls-visual');
+
+
 // ----- CONSTANTES E METAS -----
 const goals = { sapling: 15, tree: 10, flower: 10, pollution: 20 };
 const POLLUTION_LIMIT = 50;
@@ -241,6 +248,14 @@ for (const key in upgradeButtons) {
             button.classList.add('purchased');
             button.textContent = "Implementado!";
             
+            if (key === 'irrigation') {
+                    if (irrigationVisuals) irrigationVisuals.style.display = 'block';
+                }
+
+            if (key === 'walls') {
+                    if (wallsVisuals) wallsVisuals.style.display = 'block';
+                }
+
             if (key === 'capacity') {
                 updateUI(); // Isso atualiza o bônus de água
                 

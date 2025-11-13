@@ -49,6 +49,14 @@ const closePlanningButton = document.getElementById('close-planning');
 const eventAlert = document.getElementById('event-alert'); // 13.1
 const fundButton = document.getElementById('fund-button'); // 13.a
 
+// --- CONFIGURAÇÕES DE VELOCIDADE (em milissegundos) ---
+    // (Valores originais: 2000, 3000, 30000)
+    // (Para testar rápido, use: 500, 750, 10000)
+    const WATER_REGEN_TIME = 500;  // Tempo para ganhar água
+    const POLLUTION_TIME = 750;  // Tempo para poluição aumentar
+    const EVENT_TIME = 10000; // Tempo entre Desastres Climáticos
+
+
 // Botões de Upgrade
 const upgradeButtons = {
     irrigation: document.getElementById('upgrade-irrigation'),
@@ -117,7 +125,7 @@ setInterval(function() {
     currentWater += waterToAdd;
     playAudio(audioElements.waterGain);
     updateUI();
-}, 2000);
+}, WATER_REGEN_TIME);
 
 // Loop de Aumento de Poluição
 setInterval(function() {
@@ -132,13 +140,13 @@ setInterval(function() {
     if (currentPollution >= POLLUTION_LIMIT && !gameWon) {
         handleGameOver();
     }
-}, 3000);
+}, POLLUTION_TIME);
 
 // Loop de Eventos Climáticos (13.1 / 13.a)
 setInterval(function() {
     if (gameWon || gameOver) return; //Checa 'gameOver'
     triggerRandomEvent();
-}, 30000); // A cada 30 segundos
+}, EVENT_TIME);
 
 timerInterval = setInterval(updateTimer, 1000);
 
@@ -249,6 +257,7 @@ for (const key in upgradeButtons) {
                     }
             
             updateUI();
+            checkWinCondition();
         } else {
             alert("Pontos de Consciência (💡) insuficientes!");
         }
@@ -406,9 +415,12 @@ function updateUI() {
         bonusDisplay.style.color = "#999"; // Cor padrão (cinza)
     }
 
-    let pollutionOpacity = (currentPollution / 50); // Mapeia 0-50 para 0-1 (0%-100%)
-    pollutionOverlay.style.opacity = Math.min(pollutionOpacity, 0.85); // Limita a opacidade máxima a 85%
-    // Você pode até experimentar com 0.9 ou 0.95 para um impacto ainda maior.
+    //Poluição Visual
+    let pollutionOpacity = (currentPollution / 50); 
+    pollutionOverlay.style.opacity = Math.min(pollutionOpacity, 0.85);
+    const maxBlur = 12;
+    const currentBlur = (currentPollution / 50) * maxBlur;
+    pollutionOverlay.style.filter = `blur(${currentBlur}px)`; 
 
     // --- ATUALIZAÇÃO DAS METAS ---
     // 1. Contar políticas compradas (NOVO)
@@ -467,6 +479,7 @@ function checkWinCondition() {
         document.getElementById('toolbox').style.display = 'none';
         document.getElementById('planning-button').style.display = 'none';
         quitGameButton.style.display = 'none';
+        if (planningMenu) planningMenu.style.display = 'none'; // Fecha o menu de planejamento
         pollutionOverlay.style.opacity = 0;
         playAudio(audioElements.win);
         saveScore(); // Salva SÓ na vitória

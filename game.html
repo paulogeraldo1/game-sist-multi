@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogando - Um simulador de Gerenciamento e Planejamento de Políticas</title>
+    
+    <link rel="stylesheet" href="css/game.css">
+    
+    <script src="js/game.js" defer></script>
+</head>
+<body>
+
+    <audio id="plantSound" src="https://www.soundjay.com/buttons/sounds/button-10.mp3" preload="auto"></audio>
+    <audio id="waterGainSound" src="https://www.soundjay.com/misc/sounds/water-drop-1.mp3" preload="auto"></audio>
+    <audio id="pollutionSound" src="https://www.soundjay.com/human/sounds/cough-2.mp3" preload="auto"></audio>
+    <audio id="droughtSound" src="https://www.soundjay.com/misc/sounds/fart-01.mp3" preload="auto"></audio>
+    <audio id="winSound" src="https://www.soundjay.com/human/sounds/applause-2.mp3" preload="auto"></audio>
+    <audio id="eventSound" src="https://www.soundjay.com/misc/sounds/bell-ringing-01.mp3" preload="auto"></audio>
+    
+    <div id="game-container">
+        <div id="pollution-overlay"></div>
+        <div id="ui-panel">
+            <h2>Ecossistema</h2>
+            <div>Consciência: <span id="awareness-display">0 💡</span></div>
+            <div>Água: <span id="resource-display">15 💧</span></div>
+            <div>Poluição: <span id="pollution-display">0 💨</span></div>
+            <div id="bonus-display">Bônus Água: (Inativo 🐝)</div>
+            
+            <div id="timer-display">Tempo: 0m 0s</div>
+            
+            <h3 style="margin-top: 15px;">Metas</h3>
+            <ul id="goals-display">
+                <li id="goal-planning">📋 Políticas: 0 / 4</li>
+                
+                <li id="goal-sapling">🌱 Brotos: 0 / 15</li>
+                <li id="goal-tree">🌳 Árvores: 0 / 10</li>
+                <li id="goal-flower">🌸 Flores: 0 / 10</li>
+                <li id="goal-pollution">💨 Poluição: 0 / 20 (Reduzir)</li>
+            </ul>
+        </div>
+        <div id="toolbox">
+            <button class="tool-button" data-plant="sapling" data-cost="1" data-emoji="🌱" data-poll-redux="1">
+                Plantar Broto (1💧 / -1💨)
+            </button>
+            <button id="tree-button" class="tool-button" data-plant="tree" data-cost="5" data-emoji="🌳" data-poll-redux="5">
+            Plantar Árvore (5💧 / -5💨)
+            </button>
+            <button class="tool-button" data-plant="flower" data-cost="3" data-emoji="🌸" data-poll-redux="0">
+                Plantar Flor (3💧 / +1💡)
+            </button>
+        </div>
+        
+        <button id="planning-button">Planejamento (13.2)</button>
+
+        <button id="quit-game-button">Sair</button>
+        
+        <div id="event-alert">ALERTA: SECA!</div>
+        
+        <button id="fund-button">Receber Fundo Climático (13.a)</button>
+
+        <div id="no-water-msg" class="feedback-msg">Sem Água!</div>
+        <div id="drought-msg" class="feedback-msg">SECA POR POLUIÇÃO!<br>A poluição bloqueou a água!</div>
+    </div>
+    
+    <div id="win-overlay">
+        <h2>🎉 PARABÉNS! 🎉</h2>
+        <p id="win-message">Você venceu em 0m 0s!</p>
+        <button id="return-button">Voltar ao Início</button>
+    </div>
+
+    <div id="gameover-overlay">
+        <h2>❌ GAME OVER! ❌</h2>
+        <p id="gameover-message">A poluição atingiu um nível crítico (50). O ecossistema entrou em colapso.</p>
+        <button id="gameover-return-button">Voltar ao Início</button>
+    </div>
+
+    <div id="planning-menu">
+        <h2>Plano de Ação Climática (13.2)</h2>
+        <p>Use seus Pontos de Consciência (💡) para implementar políticas de adaptação e mitigação.</p>
+        
+        <div class="upgrades-container">
+            <div class="upgrade-card">
+                <h3>Adaptação: Irrigação (13.1)</h3>
+                <p>Reduz o impacto das Secas aleatórias.</p>
+                <button class="upgrade-button" id="upgrade-irrigation" data-cost="5">Custo: 5 💡</button>
+            </div>
+            <div class="upgrade-card">
+                <h3>Adaptação: Muros (13.1)</h3>
+                <p>Protege Brotos e Flores de Enchentes.</p>
+                <button class="upgrade-button" id="upgrade-walls" data-cost="5">Custo: 5 💡</button>
+            </div>
+            <div class="upgrade-card">
+                <h3>Capacitação Local (13.b)</h3>
+                <p>Habilita a redução de custo de árvore para 4.</p>
+                <button class="upgrade-button" id="upgrade-capacity" data-cost="10">Custo: 10 💡</button>
+            </div>
+            <div class="upgrade-card">
+                <h3>Educação (13.3)</h3>
+                <p>Engenharia Florestal: Árvores reduzem -1 Poluição extra.</p>
+                <button class="upgrade-button" id="upgrade-education" data-cost="8">Custo: 8 💡</button>
+            </div>
+        </div>
+        
+        <button id="close-planning" class="upgrade-button">Fechar</button>
+    </div>
+
+</body>
+</html>

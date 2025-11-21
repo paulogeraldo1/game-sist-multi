@@ -3,92 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início - Um simulador de Gerenciamento e Planejamento de Políticas</title>
+    <title>Início - Resiliência Climática</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="css/main.css">
     
     <script src="js/main.js" defer></script>
 </head>
 <body>
-    
 
     <div class="container">
         <header>
-            <h1>🌍 ODS 13 - Ação contra a mudança global do clima</h1>
-            <p>Um simulador de Gerenciamento e Planejamento de Políticas</p>
+            <h1>🌍 ODS 13: Resiliência Climática</h1>
+            <p>Simulador de Planejamento e Ação contra a Mudança do Clima</p>
         </header>
 
         <main>
             <div class="start-section">
-                <input type="text" id="player-name" placeholder="Digite seu nome de planejador(a)">
-                <button id="start-button">Iniciar Simulação</button>
+                <div class="input-wrapper">
+                    <label for="player-name">Identificação do Planejador:</label>
+                    <input type="text" id="player-name" placeholder="Digite seu nome...">
+                </div>
+                <button id="start-button">INICIAR SIMULAÇÃO ▶</button>
             </div>
 
             <div class="content-wrapper">
                 
                 <div class="rules-section">
-    <h2>📖 Como Jogar: Guia do Planejador</h2>
-    
-    <div class="rules-box objective-box">
-        <h3>🎯 Seu Objetivo</h3>
-        <p>Você tem dois desafios principais que devem ser concluídos ao **mesmo tempo**:</p>
-        <ol class="objective-list">
-            <li>Implementar seu Plano de Ação Climática (comprar todas as 4 políticas).</li>
-            <li>Cumprir as metas de reflorestamento e reduzir a Poluição a um nível seguro.</li>
-        </ol>
-    </div>
+                    
+                    <div class="game-status-bar">
+                        <div class="status-box win">
+                            <h3>🏆 PARA VENCER</h3>
+                            <p>1. Compre as <strong>4 Políticas</strong> (Menu Planejamento).<br>
+                               2. Reduza a <strong>Poluição</strong> para o nível seguro.</p>
+                        </div>
+                        <div class="status-box lose">
+                            <h3>☠️ GAME OVER</h3>
+                            <p>Se a Poluição (💨) atingir o <strong>nível 50</strong>, o ecossistema colapsa e você perde imediatamente.</p>
+                        </div>
+                    </div>
 
-    <h3>🏛️ Os 3 Pilares do Jogo</h3>
-    <div class="pillars-container">
-        <div class="pillar water">
-            <h4>💧 Água (Ação)</h4>
-            <p>Seu recurso principal para plantar. Regenera passivamente.</p>
-        </div>
-        <div class="pillar pollution">
-            <h4>💨 Poluição (Ameaça)</h4>
-            <p>Causa **Game Over** (nível 50) se não for controlada.</p>
-        </div>
-        <div class="pillar awareness">
-            <h4>💡 Consciência (Estratégia)</h4>
-            <p>A "moeda" para comprar políticas. Gerada plantando Flores (🌸).</p>
-        </div>
-    </div>
+                    <h2 class="section-title">🔄 O Ciclo de Gameplay</h2>
+                    <div class="game-cycle">
+                        
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <div class="step-icon">🌸 ➔ 💡</div>
+                            <h4>GERAR RECURSO</h4>
+                            <p>Plante <strong>Flores</strong>. Elas não limpam poluição, mas geram <strong>Consciência (💡)</strong>.</p>
+                        </div>
 
-    <div class="challenge-solution-container">
-        <div class="rules-box challenge-box">
-            <h3>🔥 O Desafio (13.1)</h3>
-            <p>A cada 30s, um **Desastre Climático** (Seca ou Enchente) pode ocorrer, destruindo 50% das suas plantas vulneráveis.</p>
-        </div>
-        
-        <div class="rules-box solution-box">
-            <h3>🛡️ A Solução (13.2)</h3>
-            <p>Use 💡 no menu "Planejamento" para comprar políticas e se proteger:</p>
-            <ul>
-                <li><strong>Adaptação:</strong> "Irrigação" (protege de Secas) e "Muros" (protege de Enchentes).</li>
-                <li><strong>Capacitação (13.b):</strong> **ESSENCIAL!** Ativa o bônus de água 🐝.</li>
-                <li><strong>Educação (13.3):</strong> Torna suas Árvores 🌳 mais eficientes.</li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="rules-box strategy-box">
-        <h3>🏆 Estratégia Vencedora</h3>
-        <p>🌸 ➔ 💡 ➔ 🛡️ (Compre Políticas) ➔ 🌳 ➔ 💨 (Combata a Poluição) ➔ Vitória!</p>
-    </div>
-</div>
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <div class="step-icon">💡 ➔ 🛡️</div>
+                            <h4>PLANEJAR (13.2)</h4>
+                            <p>Use a Consciência no menu <strong>Planejamento</strong> para comprar Proteção e Bônus.</p>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <div class="step-icon">💧 ➔ 🌳</div>
+                            <h4>COMBATER (13.3)</h4>
+                            <p>Com a economia forte, use Água para plantar <strong>Árvores</strong> e baixar a Poluição.</p>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <h3>⚠️ CUIDADO: Desastres (13.1)</h3>
+                        <p>A cada 30s ocorre uma <strong>Seca</strong> ou <strong>Enchente</strong> que destrói suas plantas.</p>
+                        <hr>
+                        <p class="solution"><strong>A SOLUÇÃO:</strong> Compre rapidamente <em>"Irrigação"</em> e <em>"Muros"</em> no menu de Planejamento para ficar imune!</p>
+                    </div>
+
+                </div>
 
                 <div class="ranking-section">
-                    <h2>Últimos 5 Planejadores</h2>
+                    <h2>🏅 Top 5 Planejadores</h2>
                     <ol id="ranking-list">
-                        <li class="no-score">Nenhuma pontuação registrada ainda.</li>
+                        <li class="no-score">Nenhum registro ainda.</li>
                     </ol>
                 </div>
                 
-            </div> </main>
+            </div> 
+        </main>
     </div>
 
 </body>

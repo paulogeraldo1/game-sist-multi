@@ -340,102 +340,128 @@ body, html {
     width: 15px;
     height: 60px;
 }
-/* --- RESPONSIVIDADE (CELULAR) PARA O GAME --- */
+
+/* --- RESPONSIVIDADE (CELULAR) - VERSÃO COMPACTA --- */
 @media (max-width: 600px) {
     
-    /* 1. Ajusta o Painel de Informações (UI) */
+    /* 1. Painel de Informações (UI) - Super Compacto */
     #ui-panel {
-        width: 90%; /* Ocupa quase toda a largura */
-        left: 5%;   /* Centraliza */
+        width: 96%; /* Quase a largura total */
+        left: 2%;   /* Centralizado */
         top: 5px;
-        padding: 10px;
+        padding: 5px 8px;
+        background-color: rgba(0, 0, 0, 0.6); /* Um pouco mais transparente */
     }
     
     #ui-panel h2 {
-        font-size: 1.2em; /* Diminui o título */
-        margin-bottom: 5px;
-    }
-    
-    /* Diminui o texto dos recursos para caber na linha */
-    #ui-panel div {
-        font-size: 0.9em;
-        display: inline-block; /* Coloca recursos lado a lado se der */
+        font-size: 1em; /* Título menor */
+        margin: 0 0 5px 0;
+        display: inline-block; /* Fica na mesma linha se der */
         margin-right: 10px;
     }
     
-    /* Esconde a lista de metas detalhada para ganhar espaço (opcional) */
-    /* Ou diminui muito a fonte */
+    /* Coloca os recursos (Água, Poluição, Consciência) em linha */
+    #ui-panel div {
+        font-size: 0.85em;
+        display: inline-block; 
+        margin-right: 8px;
+        margin-bottom: 2px;
+    }
+    
+    /* Metas: Lista flexível e pequena */
     #goals-display {
-        font-size: 0.8em;
+        margin-top: 5px;
         padding-left: 0;
         display: flex;
         flex-wrap: wrap;
-        gap: 5px;
+        gap: 4px;
+        justify-content: flex-start;
     }
+    
+    /* Itens da meta como "tags" pequenas */
     #goals-display li {
-        background: rgba(0,0,0,0.3);
-        padding: 2px 5px;
+        font-size: 0.75em;
+        background: rgba(255,255,255,0.15);
+        padding: 2px 6px;
         border-radius: 4px;
+        margin: 0;
+    }
+    
+    /* Esconde o título "Metas" para economizar espaço */
+    #ui-panel h3 {
+        display: none; 
     }
 
-    /* 2. Ajusta a Caixa de Ferramentas (Botões) */
+    /* 2. Menu de Planejamento (Rolagem Ativada) */
+    #planning-menu {
+        padding-top: 10px;
+        justify-content: flex-start; /* Começa do topo */
+    }
+    
+    #planning-menu h2 {
+        font-size: 1.4em;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+    
+    #planning-menu .upgrades-container {
+        flex-direction: column;
+        width: 90%;
+        
+        /* --- A MÁGICA DA ROLAGEM --- */
+        max-height: 70vh; /* Ocupa no máximo 70% da altura da tela */
+        overflow-y: auto; /* Cria barra de rolagem se passar disso */
+        padding-right: 5px; /* Espaço para não cobrir texto com a barra */
+        /* --------------------------- */
+    }
+    
+    .upgrade-card {
+        width: 100%; /* Card ocupa largura total do container */
+        margin-bottom: 10px;
+        padding: 10px;
+        box-sizing: border-box; /* Garante que padding não estoure a largura */
+    }
+    
+    /* Botão Fechar sempre visível abaixo da lista */
+    #close-planning {
+        margin-top: 15px;
+        margin-bottom: 20px;
+        padding: 12px;
+        width: 90%;
+        background-color: #dc3545; /* Vermelho para destaque */
+    }
+
+    /* 3. Ferramentas e Botões de Ação */
     #toolbox {
-        width: 95%;
-        bottom: 10px;
+        width: 98%;
+        bottom: 5px; /* Bem no rodapé */
         padding: 5px;
-        gap: 5px;
-        flex-wrap: wrap; /* Permite quebra de linha se necessário */
+        gap: 4px;
     }
     
     .tool-button {
-        font-size: 0.85em; /* Texto menor */
-        padding: 8px 5px;
-        flex: 1; /* Botões esticam para preencher espaço */
+        font-size: 0.8em; 
+        padding: 8px 4px;
+        flex: 1;
     }
 
-    /* 3. Ajusta o Menu de Planejamento */
-    #planning-menu {
-        padding-top: 20px;
-    }
-    #planning-menu h2 {
-        font-size: 1.5em;
-    }
-    #planning-menu .upgrades-container {
-        flex-direction: column; /* Empilha os upgrades */
-        overflow-y: auto; /* Permite rolar a tela se não couber */
-        max-height: 60vh; /* Altura máxima para não cobrir botão fechar */
-        width: 90%;
-    }
-    .upgrade-card {
-        width: 100%; /* Card ocupa largura total */
-        margin-bottom: 10px;
-        padding: 10px;
-    }
-
-    /* 4. Botões de Sistema (Sair e Planejamento) */
+    /* Botões Flutuantes (Sair e Planejamento) */
     #planning-button {
         top: auto;
-        bottom: 80px; /* Move para baixo, perto do toolbox */
+        bottom: 70px; /* Acima das ferramentas */
         right: 10px;
-        padding: 8px 12px;
-        font-size: 0.8em;
+        padding: 10px 15px;
+        font-size: 0.9em;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
     
     #quit-game-button {
         top: auto;
-        bottom: 80px; /* Move para baixo também */
-        left: 10px;   /* Coloca na esquerda */
+        bottom: 70px; /* Alinhado com planejamento */
+        left: 10px;
         right: auto;
-        padding: 8px 12px;
-        font-size: 0.8em;
-    }
-
-    /* 5. Textos de Feedback (Seca/Game Over) */
-    .feedback-msg {
-        font-size: 1.5em;
-        width: 90%;
-    }
-    #win-overlay h2, #gameover-overlay h2 {
-        font-size: 2em;
+        padding: 10px 15px;
+        font-size: 0.9em;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     }
 }

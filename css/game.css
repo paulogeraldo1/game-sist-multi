@@ -9,7 +9,7 @@ body, html {
 #pollution-overlay {
     position: absolute; top: 0; left: 0;
     width: 100%; height: 100%;
-    background-color: rgba(60, 60, 60, 0.9); /* (ou a cor que você escolheu acima) */
+    background-color: rgba(60, 60, 60, 0.9);
     opacity: 0;
     pointer-events: none;
     transition: opacity 1s linear, filter 1s linear; /* AGORA TAMBÉM TRANSICIONA O FILTRO */
@@ -92,7 +92,7 @@ body, html {
     display: none;
 }
 #event-alert.positive {
-    background-color: #28a745; /* Verde positivo */
+    background-color: #28a745;
 }
 
 /* --- MENU DE PLANEJAMENTO (13.2 / 13.3) --- */
@@ -208,7 +208,7 @@ body, html {
 }
 #win-overlay h2 {
     font-size: 3.5em;
-    color: #FFD700; /* Dourado */
+    color: #FFD700;
     margin: 0;
 }
 #win-overlay p {
@@ -229,13 +229,13 @@ body, html {
     background-color: #218838;
 }
 
-/* --- NOVO: Estilo da Tela de Game Over --- */
+/* --- Tela de Game Over --- */
 #gameover-overlay {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background-color: rgba(70, 0, 0, 0.9); /* Fundo vermelho escuro */
-    z-index: 100; /* Mesma camada da vitória, na frente de tudo */
+    background-color: rgba(70, 0, 0, 0.9);
+    z-index: 100;
     display: none;
     justify-content: center;
     align-items: center;
@@ -245,50 +245,47 @@ body, html {
 }
 #gameover-overlay h2 {
     font-size: 3.5em;
-    color: #FF4500; /* Vermelho vibrante */
+    color: #FF4500;
     margin: 0;
 }
 #gameover-overlay p {
     font-size: 1.5em;
-    margin: 15px 0 10px 0; /* Ajuste para ter duas linhas de texto */
+    margin: 15px 0 10px 0;
 }
 #gameover-return-button {
     font-size: 1.2em;
     padding: 12px 25px;
-    background-color: #dc3545; /* Vermelho padrão Bootstrap */
+    background-color: #dc3545;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-top: 20px; /* Espaço do botão */
+    margin-top: 20px;
 }
 #gameover-return-button:hover {
     background-color: #c82333;
 }
-/* --- FIM NOVO: Estilo da Tela de Game Over --- */
-
-/* ... (código CSS existente) ... */
 
 /* Botão de Sair */
 #quit-game-button {
     position: absolute;
-    top: 60px; /* Posição abaixo do botão "Planejamento" */
+    top: 60px; 
     right: 10px;
     font-size: 0.9em;
     padding: 8px 12px;
-    background-color: #dc3545; /* Vermelho (cor de "perigo" ou "sair") */
+    background-color: #dc3545; 
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    z-index: 11; /* Mesma camada do botão de planejamento */
-    opacity: 0.8; /* Fica um pouco sutil */
+    z-index: 11; 
+    opacity: 0.8;
     transition: opacity 0.3s;
 }
 
 #quit-game-button:hover {
-    opacity: 1; /* Opacidade total ao passar o mouse */
+    opacity: 1; /* Opacidade ao passar o mouse */
 }
 
 /* --- VISUALIZAÇÕES DE INFRAESTRUTURA (13.2) --- */
@@ -299,7 +296,7 @@ body, html {
     height: 100%;
     top: 0;
     left: 0;
-    pointer-events: none; /* O jogador pode clicar "através" */
+    pointer-events: none;
     z-index: 1; /* Fica atrás da UI (que é z-index 10+) */
 }
 /* --- Estilos dos Muros --- */
@@ -318,12 +315,12 @@ body, html {
 /* --- Estilos da Irrigação (Tubulação) --- */
 .pipe {
     position: absolute;
-    background-color: #a0a0a0; /* Cor de cano (PVC/Metal) */
+    background-color: #a0a0a0; /* Cor de cano */
     border: 4px solid #777;
     box-sizing: border-box;
 }
 .main-pipe {
-    bottom: 100px; /* Fica logo acima da caixa de ferramentas */
+    bottom: 100px;
     left: 0;
     width: 100%;
     height: 20px;
@@ -341,22 +338,22 @@ body, html {
     height: 60px;
 }
 
-/* --- RESPONSIVIDADE (CELULAR) - VERSÃO COMPACTA --- */
+/* --- RESPONSIVIDADE --- */
 @media (max-width: 600px) {
     
-    /* 1. Painel de Informações (UI) - Super Compacto */
+    /* 1. Painel de Informações (UI) */
     #ui-panel {
-        width: 96%; /* Quase a largura total */
-        left: 2%;   /* Centralizado */
+        width: 96%; 
+        left: 2%;   
         top: 5px;
         padding: 5px 8px;
-        background-color: rgba(0, 0, 0, 0.6); /* Um pouco mais transparente */
+        background-color: rgba(0, 0, 0, 0.6); 
     }
     
     #ui-panel h2 {
-        font-size: 1em; /* Título menor */
+        font-size: 1em; 
         margin: 0 0 5px 0;
-        display: inline-block; /* Fica na mesma linha se der */
+        display: inline-block; 
         margin-right: 10px;
     }
     
@@ -387,7 +384,7 @@ body, html {
         margin: 0;
     }
     
-    /* Esconde o título "Metas" para economizar espaço */
+    /* Esconde o título "Metas" */
     #ui-panel h3 {
         display: none; 
     }
@@ -395,7 +392,7 @@ body, html {
     /* 2. Menu de Planejamento (Rolagem Ativada) */
     #planning-menu {
         padding-top: 10px;
-        justify-content: flex-start; /* Começa do topo */
+        justify-content: flex-start;
     }
     
     #planning-menu h2 {
@@ -416,10 +413,10 @@ body, html {
     }
     
     .upgrade-card {
-        width: 100%; /* Card ocupa largura total do container */
+        width: 100%; 
         margin-bottom: 10px;
         padding: 10px;
-        box-sizing: border-box; /* Garante que padding não estoure a largura */
+        box-sizing: border-box;
     }
     
     /* Botão Fechar sempre visível abaixo da lista */
@@ -428,13 +425,13 @@ body, html {
         margin-bottom: 20px;
         padding: 12px;
         width: 90%;
-        background-color: #dc3545; /* Vermelho para destaque */
+        background-color: #dc3545; 
     }
 
     /* 3. Ferramentas e Botões de Ação */
     #toolbox {
         width: 98%;
-        bottom: 5px; /* Bem no rodapé */
+        bottom: 5px;
         padding: 5px;
         gap: 4px;
     }
@@ -448,7 +445,7 @@ body, html {
     /* Botões Flutuantes (Sair e Planejamento) */
     #planning-button {
         top: auto;
-        bottom: 70px; /* Acima das ferramentas */
+        bottom: 70px;
         right: 10px;
         padding: 10px 15px;
         font-size: 0.9em;
@@ -457,7 +454,7 @@ body, html {
     
     #quit-game-button {
         top: auto;
-        bottom: 70px; /* Alinhado com planejamento */
+        bottom: 70px;
         left: 10px;
         right: auto;
         padding: 10px 15px;

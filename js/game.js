@@ -13,7 +13,7 @@ const droughtMsg = document.getElementById('drought-msg');
 
 // Metas
 const goalElements = {
-    planning: document.getElementById('goal-planning'), // NOVO
+    planning: document.getElementById('goal-planning'),
     sapling: document.getElementById('goal-sapling'),
     tree: document.getElementById('goal-tree'),
     flower: document.getElementById('goal-flower'),
@@ -51,7 +51,7 @@ const fundButton = document.getElementById('fund-button'); // 13.a
 
 // --- CONFIGURAÇÕES DE VELOCIDADE (em milissegundos) ---
     // (Valores originais: 2000, 3000, 30000)
-    // (Para testar rápido, use: 500, 750, 10000)
+    // (Para testar rápido: 500, 750, 10000)
     const WATER_REGEN_TIME = 500;  // Tempo para ganhar água
     const POLLUTION_TIME = 750;  // Tempo para poluição aumentar
     const EVENT_TIME = 10000; // Tempo entre Desastres Climáticos
@@ -87,7 +87,7 @@ let waterBonus = 0;
 let selectedTool = null;
 let inventory = { sapling: 0, tree: 0, flower: 0 };
 let gameWon = false;
-let gameOver = false; //Estado de derrota
+let gameOver = false;
 
 // Estado dos Eventos
 let isPollutionDrought = false; // Seca por poluição alta
@@ -101,7 +101,6 @@ let upgrades = {
 };
 
 // ----- Loops de Tempo -----
-
 function updateTimer() {
     if (gameWon || gameOver) return; //Checa 'gameOver'
     const now = new Date();
@@ -181,7 +180,7 @@ gameContainer.addEventListener('click', function(event) {
     let pollutionReduction = parseInt(selectedTool.dataset.pollRedux);
 
     // LÓGICA DE CUSTO ---
-    let cost = parseInt(selectedTool.dataset.cost); // Mude 'const' para 'let'
+    let cost = parseInt(selectedTool.dataset.cost);
 
     // Aplica o bônus de Capacitação (13.b) se for uma árvore
     if (plantType === 'tree' && upgrades.capacity) {
@@ -221,7 +220,7 @@ returnButton.addEventListener('click', function() {
 });
 
 planningButton.addEventListener('click', () => {
-    if (gameOver) return; //Não abre o menu se o jogo acabou
+    if (gameOver) return;
     planningMenu.style.display = 'flex';
 });
 closePlanningButton.addEventListener('click', () => {
@@ -258,7 +257,6 @@ for (const key in upgradeButtons) {
 
             if (key === 'capacity') {
                 updateUI(); // Isso atualiza o bônus de água
-                
                 // Atualiza o texto do botão da Árvore (usando a const global)
                 if (treeButton) {
                     treeButton.textContent = "Plantar Árvore (4💧 / -5💨)";
@@ -315,7 +313,6 @@ function triggerRandomEvent() {
         }, 10000);
     
     } else {
-        // 40% chance de nada
     }
 }
 
@@ -347,7 +344,7 @@ function destroyVulnerablePlants(percentageToDestroy) {
     // 2. Calcular exatamente a quantidade a destruir
     let totalToDestroy = Math.floor(vulnerablePlants.length * percentageToDestroy);
 
-    // 3. Embaralhar a lista para garantir aleatoriedade justa
+    // 3. Embaralhar a lista para garantir aleatoriedade
     for (let i = vulnerablePlants.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [vulnerablePlants[i], vulnerablePlants[j]] = [vulnerablePlants[j], vulnerablePlants[i]];
@@ -377,7 +374,7 @@ function recalculateInventory() {
         else if (plant.textContent === '🌳') inventory.tree++;
     });
     
-    updateUI(); // Força a atualização do painel de metas
+    updateUI();
 }
 
 
@@ -540,13 +537,11 @@ gameoverReturnButton.addEventListener('click', function() {
 
 quitGameButton.addEventListener('click', function(e) {
     e.stopPropagation();
-    // Pergunta ao usuário se ele tem certeza
     const confirmQuit = confirm("Você tem certeza que quer sair? Todo o progresso desta partida será perdido.");
     
     if (confirmQuit) {
         window.location.href = 'index.html';
     }
 });
-// Chamar updateUI() uma vez no início
 updateUI();
 });

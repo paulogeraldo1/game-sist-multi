@@ -96,7 +96,6 @@ header p { color: #7f8c8d; font-size: 1.1em; }
     color: #7f1d1d;
 }
 
-/* Ciclo do Jogo (Cards) */
 .game-cycle {
     display: flex;
     gap: 10px;
@@ -153,7 +152,7 @@ header p { color: #7f8c8d; font-size: 1.1em; }
 #ranking-list li { margin-bottom: 8px; font-weight: bold; color: #555; }
 #ranking-list li span { float: right; color: #27ae60; }
 
-/* --- RESPONSIVIDADE (CELULAR) PARA O INDEX --- */
+/* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
     /* Faz o layout virar uma coluna única */
     .content-wrapper {

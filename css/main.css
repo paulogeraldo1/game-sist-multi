@@ -152,3 +152,43 @@ header p { color: #7f8c8d; font-size: 1.1em; }
 #ranking-list { padding-left: 20px; }
 #ranking-list li { margin-bottom: 8px; font-weight: bold; color: #555; }
 #ranking-list li span { float: right; color: #27ae60; }
+
+/* --- RESPONSIVIDADE (CELULAR) PARA O INDEX --- */
+@media (max-width: 768px) {
+    /* Faz o layout virar uma coluna única */
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Remove a largura máxima para ocupar a tela toda */
+    .container {
+        width: 95%;
+        padding: 15px;
+        margin: 10px auto;
+    }
+
+    /* Ajusta o input e botão de start */
+    .start-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .input-wrapper {
+        max-width: 100%;
+    }
+    #start-button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    /* Empilha os Pilares e os Desafios */
+    .pillars-container, 
+    .challenge-solution-container {
+        flex-direction: column;
+    }
+    
+    .ranking-section {
+        width: 100%; /* Ranking ocupa largura total */
+        margin-top: 20px;
+    }
+}

@@ -20,7 +20,7 @@ O objetivo é educar sobre a interdependência entre **ação imediata** e **pla
 
 ## 💻 Tecnologias e Arquitetura de Deploy
 
-O projeto foi desenvolvido utilizando a "Tríade Web" nativa (HTML5, CSS3 e JavaScript ES6+), sem dependência de frameworks ou bibliotecas externas.
+O projeto foi desenvolvido utilizando HTML5, CSS3 e JavaScript, sem dependência de frameworks ou bibliotecas externas.
 
 ### Por que essa escolha?
 A decisão por essa arquitetura foi estratégica para viabilizar o **Deploy Automático (CI/CD)**:
@@ -35,10 +35,10 @@ A decisão por essa arquitetura foi estratégica para viabilizar o **Deploy Auto
 
 Além da arquitetura limpa, o projeto se destaca por:
 
-* **🧠 Lógica de Jogo Complexa:** Implementa um sistema de "loops de feedback". Investir em educação (13.3) gera recursos para infraestrutura (13.1), que protege a economia para permitir a mitigação (redução de carbono).
-* **🎨 Feedback Visual e Sonoro Imersivo:**
+* **🧠 Lógica de Jogo:** Implementa um sistema de "loops de feedback". Investir em educação (13.3) gera recursos para infraestrutura (13.1), que protege a economia para permitir a mitigação (redução de carbono).
+* **🎨 Feedback Visual e Sonoro:**
     * **Poluição Dinâmica:** Utiliza filtros CSS (`backdrop-filter`, `blur`) para degradar visualmente o jogo conforme a poluição aumenta, criando urgência.
-    * **Infraestrutura Visível:** O código manipula o DOM para renderizar fisicamente muros e tubulações quando os upgrades são comprados.
+    * **Infraestrutura Visível:** O código cria fisicamente muros e tubulações quando os upgrades são comprados.
 * **💾 Persistência de Dados (Local Storage):** Utiliza a API de armazenamento do navegador para manter um Ranking de Líderes persistente, permitindo competição local sem necessidade de banco de dados.
 * **📱 Design Responsivo:** Interface adaptável via CSS Flexbox, garantindo usabilidade em diferentes resoluções.
 

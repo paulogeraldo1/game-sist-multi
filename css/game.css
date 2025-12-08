@@ -1,17 +1,10 @@
-/* css/game.css */
-
 body, html {
     margin: 0;
     padding: 0;
-    /* Altura Fallback para navegadores antigos */
     height: 100%; 
-    /* Altura Dinâmica para iOS Safari (Isso corrige o corte) */
     height: 100dvh; 
-    
     font-family: Arial, sans-serif;
-    overflow: hidden; /* Evita rolagem elástica chata do iOS */
-    
-    /* Previne seleção de texto acidental ao tocar rápido */
+    overflow: hidden;
     -webkit-user-select: none;
     user-select: none;
     -webkit-touch-callout: none;
@@ -20,14 +13,11 @@ body, html {
 #game-container {
     position: relative;
     width: 100%;
-    /* Mesma correção aqui */
     height: 100%;
     height: 100dvh; 
-    
     background-color: #A67B5B;
     cursor: pointer;
 }
-
 
 /*Poluição Visual*/
 #pollution-overlay {
@@ -36,9 +26,9 @@ body, html {
     background-color: rgba(60, 60, 60, 0.9);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 1s linear, filter 1s linear; /* AGORA TAMBÉM TRANSICIONA O FILTRO */
+    transition: opacity 1s linear, filter 1s linear;
     z-index: 5;
-    filter: blur(0px); /* Começa sem blur */
+    filter: blur(0px); 
 }
 
 /* --- PAINEL PRINCIPAL (UI) --- */
@@ -107,7 +97,7 @@ body, html {
     left: 50%;
     transform: translateX(-50%);
     padding: 15px;
-    background-color: #FF4500; /* Vermelho alerta */
+    background-color: #FF4500;
     color: white;
     font-size: 1.2em;
     font-weight: bold;
@@ -309,7 +299,7 @@ body, html {
 }
 
 #quit-game-button:hover {
-    opacity: 1; /* Opacidade ao passar o mouse */
+    opacity: 1;
 }
 
 /* --- VISUALIZAÇÕES DE INFRAESTRUTURA (13.2) --- */
@@ -321,7 +311,7 @@ body, html {
     top: 0;
     left: 0;
     pointer-events: none;
-    z-index: 1; /* Fica atrás da UI (que é z-index 10+) */
+    z-index: 1;
 }
 /* --- Estilos dos Muros --- */
 .wall {
@@ -331,7 +321,7 @@ body, html {
     width: 30px; /* Largura do muro */
     background-color: #6b6b6b; /* Cor de concreto */
     border: 4px solid #4a4a4a;
-    box-sizing: border-box; /* Impede que a borda aumente a largura */
+    box-sizing: border-box;
 }
 .wall-left { left: 0; }
 .wall-right { right: 0; }
@@ -365,7 +355,6 @@ body, html {
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 600px) {
     
-    /* 1. Painel de Informações (UI) */
     #ui-panel {
         width: 96%; 
         left: 2%;   
@@ -381,7 +370,6 @@ body, html {
         margin-right: 10px;
     }
     
-    /* Coloca os recursos (Água, Poluição, Consciência) em linha */
     #ui-panel div {
         font-size: 0.85em;
         display: inline-block; 
@@ -389,7 +377,6 @@ body, html {
         margin-bottom: 2px;
     }
     
-    /* Metas: Lista flexível e pequena */
     #goals-display {
         margin-top: 5px;
         padding-left: 0;
@@ -399,7 +386,6 @@ body, html {
         justify-content: flex-start;
     }
     
-    /* Itens da meta como "tags" pequenas */
     #goals-display li {
         font-size: 0.75em;
         background: rgba(255,255,255,0.15);
@@ -408,12 +394,10 @@ body, html {
         margin: 0;
     }
     
-    /* Esconde o título "Metas" */
     #ui-panel h3 {
         display: none; 
     }
 
-    /* 2. Menu de Planejamento (Rolagem Ativada) */
     #planning-menu {
         padding-top: 10px;
         justify-content: flex-start;
@@ -428,12 +412,9 @@ body, html {
     #planning-menu .upgrades-container {
         flex-direction: column;
         width: 90%;
-        
-        /* --- A MÁGICA DA ROLAGEM --- */
-        max-height: 70vh; /* Ocupa no máximo 70% da altura da tela */
-        overflow-y: auto; /* Cria barra de rolagem se passar disso */
-        padding-right: 5px; /* Espaço para não cobrir texto com a barra */
-        /* --------------------------- */
+        max-height: 70vh;
+        overflow-y: auto; 
+        padding-right: 5px;
     }
     
     .upgrade-card {
@@ -443,7 +424,6 @@ body, html {
         box-sizing: border-box;
     }
     
-    /* Botão Fechar sempre visível abaixo da lista */
     #close-planning {
         margin-top: 15px;
         margin-bottom: 20px;
@@ -452,7 +432,6 @@ body, html {
         background-color: #dc3545; 
     }
 
-    /* 3. Ferramentas e Botões de Ação */
     #toolbox {
         width: 98%;
         bottom: 5px;
@@ -466,7 +445,6 @@ body, html {
         flex: 1;
     }
 
-    /* Botões Flutuantes (Sair e Planejamento) */
     #planning-button {
         top: auto;
         bottom: 70px;

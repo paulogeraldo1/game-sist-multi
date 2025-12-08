@@ -69,7 +69,7 @@ const upgradeButtons = {
 const treeButton = document.getElementById('tree-button');
 const quitGameButton = document.getElementById('quit-game-button');
 
-// NOVO: Elementos Visuais de Infraestrutura
+// Elementos Visuais de Infraestrutura
 const irrigationVisuals = document.getElementById('irrigation-visual');
 const wallsVisuals = document.getElementById('walls-visual');
 
@@ -121,12 +121,12 @@ setInterval(function() {
         playAudio(audioElements.drought);
         return; 
     }
-    // 1. Calcula a água base (com bônus das abelhas)
+    // 1. Calcula a água base
     let waterToAdd = BASE_WATER_REGEN + waterBonus;
 
     // 2. Verifica se a Irrigação (13.1) está ativa
     if (upgrades.irrigation) {
-        waterToAdd *= 2; // Dobra a quantidade!
+        waterToAdd *= 2;
     }
     currentWater += waterToAdd;
     playAudio(audioElements.waterGain);
@@ -139,10 +139,10 @@ setInterval(function() {
     
     currentPollution++;
     playAudio(audioElements.pollution);
-    updateUI(); // Atualiza a UI
+    updateUI();
 
     //Checagem de Game Over
-    // Checa se a poluição atingiu o limite E se o jogo já não foi ganho
+    // Checa se a poluição atingiu o limite e se o jogo já não foi ganho
     if (currentPollution >= POLLUTION_LIMIT && !gameWon) {
         handleGameOver();
     }
@@ -278,10 +278,8 @@ for (const key in upgradeButtons) {
 }
 
 // ----- FUNÇÕES DE EVENTOS (13.1) -----
-
 function triggerRandomEvent() {
     const rand = Math.random();
-    
     // --- SECA (13.1) ---
     if (rand < 0.2) { 
         if (upgrades.irrigation) { // Irrigação (13.1) comprada?
@@ -328,11 +326,11 @@ function showAlert(message, isPositive) {
 }
 
 /**
- * Destrói uma porcentagem de plantas vulneráveis (Brotos e Flores).
+ * Destrói uma porcentagem de plantas
  * @param {number} percentageToDestroy - (0.5 para 50%).
  */
 function destroyVulnerablePlants(percentageToDestroy) {
-    // 1. Encontrar todas as plantas vulneráveis (Brotos e Flores)
+    // 1. Encontrar todas as plantas
     let allPlants = document.querySelectorAll('.plant');
     let vulnerablePlants = [];
     allPlants.forEach(plant => {
@@ -401,19 +399,18 @@ function updateUI() {
     awarenessDisplay.textContent = `${currentAwareness} 💡`;
 
 // --- FEEDBACK DA UI ---
-    
-    // 1. Calcula a água base (com bônus das abelhas)
+    // 1. Calcula a água base
     let waterToAdd = BASE_WATER_REGEN + waterBonus;
-    let bonusString = ""; // Texto extra para a UI
+    let bonusString = "";
 
     // 2. Checa o bônus de Capacitação (13.b)
     if (upgrades.capacity) {
-        bonusString += " 🐝"; // Adiciona o emoji
+        bonusString += " 🐝";
     }
 
     // 3. Checa o bônus de Irrigação (13.1)
     if (upgrades.irrigation) {
-        waterToAdd *= 2; // Dobra o valor
+        waterToAdd *= 2;
         bonusString += " (Irrigação x2)";
     }
 
@@ -422,9 +419,9 @@ function updateUI() {
 
     // 5. Define a cor (fica cinza se nenhum upgrade estiver ativo)
     if (upgrades.irrigation || upgrades.capacity) {
-        bonusDisplay.style.color = "#FFD700"; // Cor de bônus (amarelo)
+        bonusDisplay.style.color = "#FFD700";
     } else {
-        bonusDisplay.style.color = "#999"; // Cor padrão (cinza)
+        bonusDisplay.style.color = "#999";
     }
 
     //Poluição Visual
@@ -435,7 +432,7 @@ function updateUI() {
     pollutionOverlay.style.filter = `blur(${currentBlur}px)`; 
 
     // --- ATUALIZAÇÃO DAS METAS ---
-    // 1. Contar políticas compradas (NOVO)
+    // 1. Contar políticas compradas
     let policiesPurchased = 0;
     for (const key in upgrades) {
         if (upgrades[key]) {
@@ -502,12 +499,11 @@ function checkWinCondition() {
 
 // ----- Função de Game Over -----
 function handleGameOver() {
-    if (gameWon) return; // Não pode perder se já ganhou
+    if (gameWon) return;
 
     gameOver = true;
-    clearInterval(timerInterval); // Para o relógio e outros loops
+    clearInterval(timerInterval);
 
-    // Esconde a UI do jogo
     document.getElementById('toolbox').style.display = 'none';
     document.getElementById('planning-button').style.display = 'none';
     quitGameButton.style.display = 'none';

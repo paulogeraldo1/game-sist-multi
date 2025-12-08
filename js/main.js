@@ -2,18 +2,14 @@
         const playerNameInput = document.getElementById('player-name');
         const rankingList = document.getElementById('ranking-list');
 
-        // FUNÇÃO: Iniciar o Jogo
+        //Iniciar o Jogo
         startButton.addEventListener('click', function() {
             const playerName = playerNameInput.value || 'Planejador(a) Anônimo(a)';
-            
-            // Salva o nome do jogador no navegador para o game.html
             sessionStorage.setItem('currentPlayerName', playerName);
-            
-            // Redireciona para a página do jogo
             window.location.href = 'game.html';
         });
 
-        // FUNÇÃO: Carregar o Ranking
+        //Carregar o Ranking
         function loadRanking() {
             let rankings = JSON.parse(localStorage.getItem('ecosystemRankings')) || [];
 
